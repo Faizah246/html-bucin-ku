@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bucin Feeldream</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap');
+
+    :root {
+      --bg-light: #500000;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --bubble-color1: rgba(236, 72, 153, 0.3);
+      --bubble-color2: rgba(219, 39, 119, 0.2);
+      --bubble-color3: rgba(244, 114, 182, 0.25);
+      --flower-color: rgba(251, 207, 232, 0.15);
+      --font-headline: 'Poppins', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg-light) url('https://raw.githubusercontent.com/Faizah246/html-bucin-ku/refs/heads/main/Fais%20satu.jpg') no-repeat center center/cover;
+      font-family: var(--font-headline);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding: 2rem;
+    }
+    h1 {
+      font-weight: 800;
+      font-size: clamp(3rem, 8vw, 5rem);
+      max-width: 700px;
+      text-align: center;
+      margin: 0;
+      line-height: 1.1;
+      position: relative;
+      z-index: 10;
+      color: #ffffff;
+      text-shadow: 0 2px 6px rgba(219, 39, 119, 0.15);
+    }
+    
+    .p {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    h2 {
+      color: #fff;
+      font-weight: 600;
+      margin-top: 2rem;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; bottom: 0; left: 0; right: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .flower {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background:
+        radial-gradient(circle at 50% 5%, var(--flower-color) 50%, transparent 30%),
+        radial-gradient(circle at 75% 50%, var(--flower-color) 25%, transparent 30%),
+        radial-gradient(circle at 25% 50%, var(--flower-color) 25%, transparent 30%),
+        radial-gradient(circle at 50% 90%, var(--flower-color) 700%, transparent 30%);
+      border-radius: 40% / 50%;
+      filter: blur(10px);
+      transform: rotate(15deg);
+      opacity: 0.6;
+      animation: flower-pulse 6s ease-in-out infinite alternate;
+    }
+
+    .flower:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+      width: 180px;
+      height: 180px;
+    }
+    .flower:nth-child(2) {
+      top: 60%;
+      left: 80%;
+      animation-delay: 3s;
+      width: 220px;
+      height: 220px;
+      transform: rotate(-20deg);
+    }
+    .flower:nth-child(3) {
+      top: 30%;
+      left: 50%;
+      animation-delay: 1.5s;
+      width: 200px;
+      height: 200px;
+      transform: rotate(45deg);
+    }
+
+    @keyframes flower-pulse {
+      0% {
+        filter: blur(8px);
+        opacity: 0.5;
+        transform: scale(1) rotate(15deg);
+      }
+      100% {
+        filter: blur(12px);
+        opacity: 0.7;
+        transform: scale(1.05) rotate(25deg);
+      }
+    }
+
+    .bubble {
+      position: fixed;
+      bottom: -100px;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-name: bubble-float;
+      animation-direction: normal;
+      filter: drop-shadow(0 0 2px rgba(219, 39, 119, 0.3));
+      background: var(--bubble-color1);
+      will-change: transform, opacity;
+      backdrop-filter: saturate(180%) blur(6px);
+    }
+
+    .bubble:nth-child(4) {
+      width: 20px;
+      height: 20px;
+      left: 20%;
+      animation-duration: 30s;
+      animation-delay: 0s;
+    }
+    .bubble:nth-child(5) {
+      width: 30px;
+      height: 30px;
+      left: 40%;
+      animation-duration: 12s;
+      animation-delay: 3s;
+      background: var(--bubble-color2);
+    }
+    .bubble:nth-child(6) {
+      width: 15px;
+      height: 15px;
+      left: 60%;
+      animation-duration: 8s;
+      animation-delay: 5s;
+      background: var(--bubble-color3);
+    }
+    .bubble:nth-child(7) {
+      width: 25px;
+      height: 25px;
+      left: 75%;
+      animation-duration: 11s;
+      animation-delay: 2s;
+      background: var(--bubble-color2);
+    }
+    .bubble:nth-child(8) {
+      width: 18px;
+      height: 18px;
+      left: 85%;
+      animation-duration: 9s;
+      animation-delay: 6s;
+      background: var(--bubble-color1);
+    }
+
+    @keyframes bubble-float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.35;
+      }
+      50% {
+        transform: translateY(-120vh) scale(1.1);
+        opacity: 0.2;
+      }
+      100% {
+        transform: translateY(-240vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .hidden-audio {
+      display: none !important;
+    }
+  </style>
+</head>
+<body> 
+  <h1>Semangat Faisss</h1>
+  <h2></h2>
+  <p>Semangat kocak, cepetan balik bandung ah lama</p>
+  <h3></h3>
+  <h4></h4>
+  <h5></h5> 
+  <P>lama lama gw cium ni anak</P> 
+
+  <div class="overlay" aria-hidden="true">
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <!-- Musik disembunyikan -->
+  <audio class="hidden-audio" loop>
+    <source src="https://feeldreams.github.io/audio/thousand.mp3" type="audio/mpeg"/>
+  </audio>
+
+  <!-- JavaScript trigger musik -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.addEventListener("click", function () {
+        const audio = document.querySelector("audio");
+        audio.play();
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>
